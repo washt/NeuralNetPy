@@ -72,8 +72,10 @@ class nnet(object):
         pass
     def update(self):
         pass
-    def sigmoid(self):
-        pass
+    
+    def sigmoid(self, netin, resp):
+    
+        return (1/ (1 + exp( ((-1)*netin)) / resp))
 
 if __name__ == "__main__":
     
