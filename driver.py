@@ -30,10 +30,26 @@ class nnet(object):
         self.numoutputs       = 0
         self.hiddenlayers     = 0
         self.neuronsperhidden = 0
-        self.neuronlayer      = []
+        self.neuronlayerlist      = []
+
+        buildNet()
     
     def buildNet(self):
-        pass
+        # build layers of net
+        if self.hiddenlayers > 0:
+            #create first hidden layer
+            self.neuronlayerlist.append(neuronLayer(self.neuronsperhidden,
+                                                        self.numinputs))
+            for i in range(self.hiddenlayers - 1):
+                self.neuronlayerlist.append(neuronLayer(self.neuronsperhidden,
+                                                            self.neuronsperhidden))
+            #build output layer
+            self.neuronlayerlist.append(neuronLayer(self.numoutputs,
+                                                            self.neuronsperhidden))
+        #build output layer
+        else:
+            self.neuronlayerlist(neuronLayer(self.numoutputs,numinputs))
+
     def getWeights(self):
         pass
     def getNumWeights(self):
