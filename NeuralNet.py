@@ -9,7 +9,7 @@ class neuron(object):
         self.weights = []
 
         for i in range(self.numinputs):
-            self.weights.append(random.randint(1,inputs +1))
+            self.weights.append(random.uniform(-1.0,1.0))
 
     def println(self):
         print self.weights, self.numinputs
@@ -18,12 +18,12 @@ class neuronLayer(object):
     
     def __init__(self,numns,neuralinputs):
         self.numNeurons = numns
-        self.neuronlist = []
+        self.nhiddenlayer = []
         for i in range(numns):
-            self.neuronlist.append(neuron(neuralinputs))
+            self.nhiddenlayer.append(neuron(neuralinputs))
    
-    def getnlist(self,i):
-        return self.neuronlist[i].weights
+    def gethidenlayer(self,i):
+        return self.nhiddenlayer[i].weights
 
     def getnumNeurons(self):
         return self.numNeurons
@@ -62,8 +62,8 @@ class nnet(object):
             # neuron
             for y in range(self.neuronlayerlist[x].numNeurons):
                 #weight
-                for z in range(neuronlayerlist[x].neuronlist[y].numinputs):
-                    locweights.append(neuronLayer[x].neuronlist[y].weights[z])
+                for z in range(neuronlayerlist[x].nhiddenlayer[y].numinputs):
+                    locweights.append(neuronLayer[x].nhiddenlayer[y].weights[z])
 
         return locweights
   
@@ -83,4 +83,4 @@ if __name__ == "__main__":
     for i in range(10):
         l = neuronLayer(i,i)
         for x in range(i):
-            print l.getnlist(x)
+            print l.gethidenlayer(x)
