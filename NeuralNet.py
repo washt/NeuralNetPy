@@ -1,4 +1,5 @@
 import random
+from math import exp
 
 class neuron(object):
 
