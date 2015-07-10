@@ -29,15 +29,16 @@ class neuronLayer(object):
         return self.numNeurons
 
 class nnet(object):
-
+    
     def __init__(self):
         self.numinputs        = 0
         self.numoutputs       = 0
-        self.hiddenlayers     = 0
+        self.hiddenlayers     = 1
         self.neuronsperhidden = 0
         self.neuronlayerlist      = []
         self.bias = 0
-        buildNet()
+        
+        self.buildNet()
     
     def buildNet(self):
         # build layers of net
@@ -53,7 +54,7 @@ class nnet(object):
                                                             self.neuronsperhidden))
         #build output layer
         else:
-            self.neuronlayerlist(neuronLayer(self.numoutputs,numinputs))
+            self.neuronlayerlist(neuronLayer(self.numoutputs,self.numinputs))
 
     def getWeights(self):
         locweights = []
@@ -111,8 +112,7 @@ class nnet(object):
                     inputs += 1
                     Netin += self.neuronlayerlist[x].nhiddenlayer[y].weights[z] * inputs
                 #add bias    
-                Netin+= self.neuronlayerlist[x].nhiddenlayer[y].weights[self.numinputs - 1] *
-                            self.bias
+                Netin+= self.neuronlayerlist[x].nhiddenlayer[y].weights[self.numinputs - 1] *self.bias
 
                 outputs.append(sigmoid(Netin,0))
                 ccweight = 0
@@ -123,10 +123,12 @@ class nnet(object):
         #@params input,activation response 
         return (1/ (1 + exp( ((-1)*netin)) / resp))
 
+
 if __name__ == "__main__":
     
-    nuns  = 3
-    nuinp = 4
-    for i in range(nuns):
-        l = neuronLayer(nuns,nuinp)
-        print l.gethidenlayer(i)
+#    nuns  = 3
+#    nuinp = 4
+#    for i in range(nuns):
+#        l = neuronLayer(nuns,nuinp)
+#        print l.gethidenlayer(i)
+    nnet()
