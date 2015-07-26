@@ -14,6 +14,7 @@ class neuron(object):
     def println(self):
         print self.weights, self.numinputs
         
+
 class neuronLayer(object):
     
     def __init__(self,numns,neuralinputs):
@@ -21,6 +22,7 @@ class neuronLayer(object):
         self.nhiddenlayer = []
         for i in range(numns):
             self.nhiddenlayer.append(neuron(neuralinputs))
+   
    
     def gethidenlayer(self,i):
         return self.nhiddenlayer[i].weights
