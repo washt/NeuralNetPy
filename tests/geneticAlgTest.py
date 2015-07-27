@@ -1,12 +1,17 @@
+from geneticAlg import *
 import unittest
 
 class genomeTest(unittest.TestCase):
 
 	def testFitness(self):
-		self.Fail("Not implemented")
+		genome = genome()
+
+		self.assertEqual(genome.fitness,0.0)
 
 	def testgetWeights(self):
-		self.Fail("Not implemented")	
+		genome = genome()
+
+		self.assertEqual(len(genome.weights),0)
 
 class genAlgTest(unittest.TestCase):
 
