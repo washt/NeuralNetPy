@@ -36,7 +36,7 @@ class geneticAlg(object):
 		self.population 	= []
 		self.totalfitness 	= 0
 		self.generation 	= 0
-		self.fittestgenome 	= 0
+		self.bestgenome 	= 0
 		self.bestfitness 	= 0
 		self.worstfitness 	= 99999999
 		self.averagefitness = 0 
