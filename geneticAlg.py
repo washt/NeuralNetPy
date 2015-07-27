@@ -43,9 +43,9 @@ class geneticAlg(object):
 
 		for  x in range(populationsize):
 
-			self.population.append(self.genome())
+			self.population.append(self.genome)
 	
-			for y in range(chromosomesize):
+			for y in range(self.chromosomesize):
 				# should this be a normal distribution 
 				# or maybe a bounded by smaller range?
 				self.population[x].pushweights(random.randint(0,100))
