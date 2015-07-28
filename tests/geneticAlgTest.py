@@ -34,7 +34,7 @@ class genAlgTest(unittest.TestCase):
 	def testtotalFit(self):
 		ga = geneticAlg(1,1,1,1)
 
-		self.assertEqual(ga.totalfitness,0)
+		self.assertEqual(ga.totalfitness,0.1)
 
 	def testbestFit(self):
 		ga = geneticAlg(1,1,1,1)
@@ -49,7 +49,7 @@ class genAlgTest(unittest.TestCase):
 	def testworstFit(self):
 		ga = geneticAlg(1,1,1,1)
 		
-		self.assertEqual(ga.worstfitness,99999999)
+		self.assertEqual(ga.worstfitness,99999999.9)
 
 	def testbestGenome(self):
 		ga = geneticAlg(1,1,1,1)
@@ -82,8 +82,13 @@ class genAlgTest(unittest.TestCase):
 		self.assertEqual(fa,bab2)
 		
 
-	# def testmutate(self,chromosome):
-	# 	self.fail("Not implemented")
+	def testmutate(self):
+		chromosome = [1.0,2.0,3.0,4.0,5.0,6.0]
+
+		ga = geneticAlg(1,1.0,2.0,1)
+		
+		self.assertNotEqual(chromosome,ga.mutate(chromosome))
+
 
 	# def testgetRandomchromo(self):
 	# 	self.fail("Not implemented")

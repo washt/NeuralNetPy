@@ -24,7 +24,7 @@ class geneticAlg(object):
 	def __init__(self, populationsize, mutationrate,
 					 crossoverrate, numweights):
 		
-		random.seed(2)
+		ran.seed(2)
 			
 
 		self.populationsize = populationsize
@@ -35,12 +35,12 @@ class geneticAlg(object):
 		self.chromosomesize = numweights
 
 		self.population 	= []
-		self.totalfitness 	= 0
-		self.generation 	= 0
+		self.totalfitness 	= 0.1
+		self.generation 	= 0.0
 		self.bestgenome 	= 0
-		self.bestfitness 	= 0
-		self.worstfitness 	= 99999999
-		self.averagefitness = 0 
+		self.bestfitness 	= 0.0
+		self.worstfitness 	= 99999999.9
+		self.averagefitness = 0.0
 
 		for  x in range(populationsize):
 
@@ -49,7 +49,7 @@ class geneticAlg(object):
 			for y in range(self.chromosomesize):
 				# should this be a normal distribution 
 				# or maybe a bounded by smaller range?
-				self.population[x].pushweights(random.randint(0,100))
+				self.population[x].pushweights(ran.uniform(-1.0,1.0))
 
 
 	def pushNet(self,net):
@@ -62,3 +62,12 @@ class geneticAlg(object):
 		offspring2 = copy.copy(father)
 
 		return offspring1,offspring2
+
+	def mutate(self,chromosome):
+		mutatedchromo = []
+		for i in chromosome:
+			r = ran.uniform(-1.0,1.0)
+			if r < self.mutationrate:
+				i += (r * self.totalfitness)
+				mutatedchromo.append(i)
+		return mutatedchromo
