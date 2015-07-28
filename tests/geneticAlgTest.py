@@ -71,38 +71,46 @@ class genAlgTest(unittest.TestCase):
 		
 		self.assertEqual(ga.generation,0)
 
-	def testcrossover(self,ma,fa,bab1,bab2):
-		self.fail("Not implemented")
+	def testcrossover(self):
+		ga = geneticAlg(0,0,0,0)
+		
+		ma = [1,1,1] 
+		fa = [1,1,1]
 
-	def testmutate(self,chromosome):
-		self.fail("Not implemented")
+		bab1,bab2 = ga.crossover(ma,fa)
+		self.assertEqual(ma,bab1)
+		self.assertEqual(fa,bab2)
+		
 
-	def testgetRandomchromo(self):
-		self.fail("Not implemented")
+	# def testmutate(self,chromosome):
+	# 	self.fail("Not implemented")
 
-	def testgetBestrandom(self,best,numclones,pop):
-		self.fail("Not implemented")
+	# def testgetRandomchromo(self):
+	# 	self.fail("Not implemented")
 
-	def testaverage(self):
-		self.fail("Not implemented")
+	# def testgetBestrandom(self,best,numclones,pop):
+	# 	self.fail("Not implemented")
 
-	def testreset(self):
-		self.fail("Not implemented")
+	# def testaverage(self):
+	# 	self.fail("Not implemented")
 
-	def testgen(self,popsize,mut,cross,numweights):
-		self.fail("Not implemented")
+	# def testreset(self):
+	# 	self.fail("Not implemented")
 
-	def testEpoch(self):
-		self.fail("Not implemented")
+	# def testgen(self,popsize,mut,cross,numweights):
+	# 	self.fail("Not implemented")
 
-	def testgetChromosomes(self):
-		self.fail("Not implemented")
+	# def testEpoch(self):
+	# 	self.fail("Not implemented")
 
-	def testgetAveragefitness(self):
-		self.fail("Not implemented")
+	# def testgetChromosomes(self):
+	# 	self.fail("Not implemented")
 
-	def testgetBestFitness(self):
-		self.fail("Not implemented")
+	# def testgetAveragefitness(self):
+	# 	self.fail("Not implemented")
+
+	# def testgetBestFitness(self):
+	# 	self.fail("Not implemented")
 
 if __name__ == '__main__':
 	unittest.main()

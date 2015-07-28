@@ -1,4 +1,5 @@
 import random as ran
+import copy
 from NeuralNet import * 
 
 class genome(object):
@@ -55,3 +56,9 @@ class geneticAlg(object):
 		
 		self.population.append(net)
 		
+	def crossover(self,mother,father):
+		
+		offspring1 = copy.copy(mother)
+		offspring2 = copy.copy(father)
+
+		return offspring1,offspring2
