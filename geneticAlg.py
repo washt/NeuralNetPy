@@ -85,5 +85,4 @@ class geneticAlg(object):
 			if localfitness >= ranslice:
 
 				thechosenone = genome
-		print thechosenone.weights
 		return thechosenone
