@@ -71,3 +71,19 @@ class geneticAlg(object):
 				i += (r * self.totalfitness)
 				mutatedchromo.append(i)
 		return mutatedchromo
+
+	def getrandomchromo(self):
+
+		ranslice = ran.uniform(0.0,1.0)
+		localfitness = 0
+		thechosenone = self.genome
+
+		for genome in self.population:
+
+			localfitness += genome.fitness
+
+			if localfitness >= ranslice:
+
+				thechosenone = genome
+		print thechosenone.weights
+		return thechosenone

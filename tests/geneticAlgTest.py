@@ -90,8 +90,11 @@ class genAlgTest(unittest.TestCase):
 		self.assertNotEqual(chromosome,ga.mutate(chromosome))
 
 
-	# def testgetRandomchromo(self):
-	# 	self.fail("Not implemented")
+	def testgetRandomchromo(self):
+		gaNoPop = geneticAlg(0,.8,2.0,0)
+		ga = geneticAlg(5,.8,2.0,10)
+		self.assertTrue(ga.getrandomchromo())
+		self.assertTrue(gaNoPop.getrandomchromo())
 
 	# def testgetBestrandom(self,best,numclones,pop):
 	# 	self.fail("Not implemented")
