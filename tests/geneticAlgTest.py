@@ -96,8 +96,12 @@ class genAlgTest(unittest.TestCase):
 		self.assertTrue(ga.getrandomchromo())
 		self.assertTrue(gaNoPop.getrandomchromo())
 
-	# def testgetBestrandom(self,best,numclones,pop):
-	# 	self.fail("Not implemented")
+	def testcopybestgenes(self):
+		best = 3
+		numclone = 2
+		
+		ga = geneticAlg(5,.8,2.0,10)
+		self.assertFalse(ga.copybestgenes(best,numclone,ga.population))
 
 	# def testaverage(self):
 	# 	self.fail("Not implemented")

@@ -86,3 +86,11 @@ class geneticAlg(object):
 
 				thechosenone = genome
 		return thechosenone
+
+	def copybestgenes(self,best,numclones,pop):
+
+		while(best):
+			for i in range(numclones):
+				pop.append(self.population[(self.populationsize - 1) - best])
+			best -= 1
+		return best
