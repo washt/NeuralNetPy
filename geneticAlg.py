@@ -99,18 +99,29 @@ class geneticAlg(object):
 		self.totalfitness = 0
 		local_high = 0
 		local_low = 9999999
+		index = 0
 
-		for i in range(self.populationsize):
-			
-			if self.population[i].fitness > local_high:
-				local_high  = self.population[i].fitness
-				self.bestgenome = i
-				self.bestfitness = local_high
+		for i in self.population:
+		
+			if i.fitness > local_high:
+				local_high  = i.fitness
+				i.bestgenome = index
+				i.bestfitness = local_high
 
-			if self.population[i].fitness < local_low:
-				local_low = self.population[i].fitness
-				self.worstfitness = local_low
+			if i.fitness < local_low:
+				local_low = i.fitness
+				i.worstfitness = local_low
 
-			self.totalfitness += self.population.fitness
+			self.totalfitness += i.fitness
+			index += 1
 
 		self.averagefitness = self.totalfitness/ self.populationsize
+	
+	def reset(self):
+
+		self.totalfitness 	= 0 
+		self.bestfitness	= 0
+		self.worstfitness 	= 9999999
+		self.averagefitness = 0
+
+		return

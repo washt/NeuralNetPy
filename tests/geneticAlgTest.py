@@ -107,15 +107,21 @@ class genAlgTest(unittest.TestCase):
 		ga = geneticAlg(5,.8,2.0,10)
 		# shouldn't return anything
 		self.assertFalse(ga.bestworstaveragetotal())
-	
 
-	# def testreset(self):
-	# 	self.fail("Not implemented")
+
+	def testreset(self):
+		ga = geneticAlg(5,.8,2.0,10)
+		self.assertNotEqual(0,ga.totalfitness)
+		ga.reset()
+		self.assertEqual(0,ga.totalfitness)
+		self.assertEqual(0,ga.bestfitness)
+		self.assertEqual(9999999,ga.worstfitness)
+		self.assertEqual(0,ga.averagefitness)
 
 	# def testgen(self,popsize,mut,cross,numweights):
 	# 	self.fail("Not implemented")
 
-	# def testEpoch(self):
+	# def testEpboch(self):
 	# 	self.fail("Not implemented")
 
 	# def testgetChromosomes(self):
