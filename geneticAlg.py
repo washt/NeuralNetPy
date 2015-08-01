@@ -94,3 +94,23 @@ class geneticAlg(object):
 				pop.append(self.population[(self.populationsize - 1) - best])
 			best -= 1
 		return best
+	def bestworstaveragetotal(self):
+
+		self.totalfitness = 0
+		local_high = 0
+		local_low = 9999999
+
+		for i in range(self.populationsize):
+			
+			if self.population[i].fitness > local_high:
+				local_high  = self.population[i].fitness
+				self.bestgenome = i
+				self.bestfitness = local_high
+
+			if self.population[i].fitness < local_low:
+				local_low = self.population[i].fitness
+				self.worstfitness = local_low
+
+			self.totalfitness += self.population.fitness
+
+		self.averagefitness = self.totalfitness/ self.populationsize

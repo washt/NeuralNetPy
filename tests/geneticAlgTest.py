@@ -103,8 +103,11 @@ class genAlgTest(unittest.TestCase):
 		ga = geneticAlg(5,.8,2.0,10)
 		self.assertFalse(ga.copybestgenes(best,numclone,ga.population))
 
-	# def testaverage(self):
-	# 	self.fail("Not implemented")
+	def testBestWorstAverageTotal(self):
+		ga = geneticAlg(5,.8,2.0,10)
+		# shouldn't return anything
+		self.assertFalse(ga.bestworstaveragetotal())
+	
 
 	# def testreset(self):
 	# 	self.fail("Not implemented")
