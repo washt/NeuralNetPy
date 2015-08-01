@@ -11,6 +11,7 @@ class neuron(object):
         for i in range(self.numinputs):
             self.weights.append(random.uniform(-1.0,1.0))
 
+    #for debugging, keeping for now
     def println(self):
         print self.weights, self.numinputs
         
