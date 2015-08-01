@@ -1,7 +1,7 @@
 language: python
 python:
   - "2.7"
-script: cd tests;python geneticAlgTest.py
+script: cd tests;python geneticAlgTest.py;python nnetTest.py
 branches:
   only:
     - master

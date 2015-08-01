@@ -20,9 +20,9 @@ class neuronLayer(object):
     def __init__(self,numns,neuralinputs):
         self.numNeurons = numns
         self.nhiddenlayer = []
+        
         for i in range(numns):
-            self.nhiddenlayer.append(neuron(neuralinputs))
-   
+            self.nhiddenlayer.append(neuron(neuralinputs))   
    
     def gethidenlayer(self,i):
         return self.nhiddenlayer[i].weights
@@ -128,9 +128,5 @@ class nnet(object):
 
 if __name__ == "__main__":
     
-#    nuns  = 3
-#    nuinp = 4
-#    for i in range(nuns):
-#        l = neuronLayer(nuns,nuinp)
-#        print l.gethidenlayer(i)
-    nnet()
+    Neuron = neuron(1)
+    Neuron.println()
