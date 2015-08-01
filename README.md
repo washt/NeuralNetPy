@@ -4,3 +4,5 @@ This project is adapted from [ai-junkie's C++ implementation](http://www.ai-junk
 
 [![Build Status](https://travis-ci.org/washt/NeuralNetPy.svg)](https://travis-ci.org/washt/NeuralNetPy)
 ##TODO
+* Add GUI
+* Test on different games
