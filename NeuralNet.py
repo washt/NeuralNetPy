@@ -25,7 +25,7 @@ class neuronLayer(object):
         for i in range(numns):
             self.nhiddenlayer.append(neuron(neuralinputs))   
    
-    def gethidenlayer(self,i):
+    def gethiddenlayer(self,i):
         return self.nhiddenlayer[i].weights
 
     def getnumNeurons(self):
@@ -125,9 +125,3 @@ class nnet(object):
     def sigmoid(self, netin, resp):
         #@params input,activation response 
         return (1/ (1 + exp( ((-1)*netin)) / resp))
-
-
-if __name__ == "__main__":
-    
-    Neuron = neuron(1)
-    Neuron.println()
