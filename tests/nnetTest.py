@@ -32,7 +32,7 @@ class neuronLayerTest(unittest.TestCase):
 		nrons = 10
 		inpts = 3
 		nlayer = neuronLayer(nrons,inpts)
-		self.assertTrue(nlayer.getnumNeurons(),nron)
+		self.assertTrue(nlayer.getnumNeurons(),nrons)
 
 if __name__ == '__main__':
 	unittest.main()
