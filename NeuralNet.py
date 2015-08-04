@@ -21,10 +21,10 @@ class neuronLayer(object):
     def __init__(self,numns,neuralinputs):
         self.numNeurons = numns
         self.nhiddenlayer = []
+        if neuralinputs > 0:
+            for i in range(numns):
+                self.nhiddenlayer.append(neuron(neuralinputs))   
         
-        for i in range(numns):
-            self.nhiddenlayer.append(neuron(neuralinputs))   
-   
     def gethiddenlayer(self,i):
         return self.nhiddenlayer[i].weights
 
@@ -36,7 +36,7 @@ class nnet(object):
     def __init__(self):
         self.numinputs        = 0
         self.numoutputs       = 0
-        self.hiddenlayers     = 1
+        self.hiddenlayers     = 0
         self.neuronsperhidden = 0
         self.neuronlayerlist      = []
         self.bias = 0
@@ -57,7 +57,7 @@ class nnet(object):
                                                             self.neuronsperhidden))
         #build output layer
         else:
-            self.neuronlayerlist(neuronLayer(self.numoutputs,self.numinputs))
+            self.neuronlayerlist.append(neuronLayer(self.numoutputs,self.numinputs))
 
     def getWeights(self):
         locweights = []

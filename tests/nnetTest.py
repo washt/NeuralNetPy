@@ -34,5 +34,17 @@ class neuronLayerTest(unittest.TestCase):
 		nlayer = neuronLayer(nrons,inpts)
 		self.assertTrue(nlayer.getnumNeurons(),nrons)
 
+class nnetTest(unittest.TestCase):
+	
+	def testconstructor(self):
+		nettest = nnet()
+		self.assertEqual(nettest.numinputs,0)
+		self.assertEqual(nettest.numoutputs,0)
+		self.assertEqual(nettest.hiddenlayers,0)
+		self.assertEqual(nettest.neuronsperhidden,0)
+		#if not hidden layers, then nnet creates one output layer
+		self.assertEqual(len(nettest.neuronlayerlist),1)
+		self.assertEqual(nettest.bias,0)
+
 if __name__ == '__main__':
 	unittest.main()
