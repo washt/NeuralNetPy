@@ -23,7 +23,16 @@ class neuronLayerTest(unittest.TestCase):
 		self.assertNotEqual(nlayer.nhiddenlayer,None)
 
 	def testhiddenlayer(self):
-		self.assertEqual(1,1)
+		nrons = 10
+		inpts = 3
+		nlayer = neuronLayer(nrons,inpts)
+		for i in xrange(nrons):
+			self.assertTrue(nlayer.gethiddenlayer(i))
+	def testnumneurons(self):
+		nrons = 10
+		inpts = 3
+		nlayer = neuronLayer(nrons,inpts)
+		self.assertTrue(nlayer.getnumNeurons(),nron)
 
 if __name__ == '__main__':
 	unittest.main()
