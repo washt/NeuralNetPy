@@ -3,6 +3,7 @@
 This project is adapted from [ai-junkie's C++ implementation](http://www.ai-junkie.com/ann/evolved/nnt1.html)
 
 [![Build Status](https://travis-ci.org/washt/NeuralNetPy.svg)](https://travis-ci.org/washt/NeuralNetPy)
-##TODO[![Coverage Status](https://coveralls.io/repos/washt/NeuralNetPy/badge.svg?branch=master&service=github)](https://coveralls.io/github/washt/NeuralNetPy?branch=master)
+[![Coverage Status](https://coveralls.io/repos/washt/NeuralNetPy/badge.svg?branch=master&service=github)](https://coveralls.io/github/washt/NeuralNetPy?branch=master)
+##TODO
 * Add GUI
 * Test on different games
