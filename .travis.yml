@@ -5,5 +5,5 @@ script: cd tests;python geneticAlgTest.py;python nnetTest.py
 branches:
   only:
     - master
-after_success: 
-	- coveralls
+after_success:
+- coveralls
