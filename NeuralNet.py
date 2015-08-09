@@ -1,6 +1,6 @@
 import random
-from math import exp
-
+# from math import exp
+from numpy import exp
 class neuron(object):
 
     def __init__(self,inputs):
@@ -33,15 +33,16 @@ class neuronLayer(object):
 
 class nnet(object):
     
-    def __init__(self):
-        self.numinputs        = 0
-        self.numoutputs       = 0
-        self.hiddenlayers     = 0
-        self.neuronsperhidden = 0
+    def __init__(self,numinputs=0,numoutputs=0,
+                    hiddenlayers=0,neuronsperhidden=0,bias=0.1):
+        self.numinputs        = numinputs
+        self.numoutputs       = numoutputs
+        self.hiddenlayers     = hiddenlayers
+        self.neuronsperhidden = neuronsperhidden
         self.neuronlayerlist      = []
-        self.bias = 0
+        self.bias = bias
         
-        self.buildNet()
+        self.buildNet() 
     
     def buildNet(self):
         # build layers of net
@@ -90,6 +91,10 @@ class nnet(object):
                     ccweight += 1
                     self.neuronlayerlist[x].nhiddenlayer[y].weights[z] = neweights[ccweight]
 
+    def sigmoid(self, netin, resp):
+        #@params input,activation response 
+        return (1/ (1 + exp( ((-1)*netin)) / resp))
+
     def update(self,inputs):
         
         outputs  = []
@@ -99,29 +104,21 @@ class nnet(object):
             return outputs
 
         for x in range(self.hiddenlayers + 1):
-        
             if x > 0:
-                inputs = outputs
-            #clear list 
+                inputs[x] = outputs[x]
+            # clear list 
             outputs[:]  = []
             ccweight    = 0
             for  y in range(self.neuronlayerlist[x].numNeurons):
-                
                 Netin = 0.0
                 Numinputs = self.neuronlayerlist[x].nhiddenlayer[y].numinputs
-
                 for z in range(Numinputs - 1):
                     #sum weights*inputss
-                    inputs += 1
-                    Netin += self.neuronlayerlist[x].nhiddenlayer[y].weights[z] * inputs
+                    inputs[x] += 1
+                    Netin += self.neuronlayerlist[x].nhiddenlayer[y].weights[z] * inputs[x]
                 #add bias    
-                Netin+= self.neuronlayerlist[x].nhiddenlayer[y].weights[self.numinputs - 1] *self.bias
-
-                outputs.append(sigmoid(Netin,0))
+                Netin += self.neuronlayerlist[x].nhiddenlayer[y].weights[-1] *self.bias
+                sig = (1/(1 + exp(-Netin/1)))
+                outputs.append(sig)
                 ccweight = 0
-
         return outputs
-
-    def sigmoid(self, netin, resp):
-        #@params input,activation response 
-        return (1/ (1 + exp( ((-1)*netin)) / resp))

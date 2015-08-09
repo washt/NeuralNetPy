@@ -46,5 +46,11 @@ class nnetTest(unittest.TestCase):
 		self.assertEqual(len(nettest.neuronlayerlist),1)
 		self.assertEqual(nettest.bias,0)
 
+	def testgetweights(self):
+		
+		nettest = nnet()
+		self.assertEqual(len(nettest.getWeights()),0)
+	
+
 if __name__ == '__main__':
 	unittest.main()
