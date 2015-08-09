@@ -1,6 +1,5 @@
 import random as ran
 import copy
-from NeuralNet import * 
 
 class genome(object):
 	"""genome for a given instance of an ANN"""
