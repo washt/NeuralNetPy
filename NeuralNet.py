@@ -34,7 +34,7 @@ class neuronLayer(object):
 class nnet(object):
     
     def __init__(self,numinputs=0,numoutputs=0,
-                    hiddenlayers=0,neuronsperhidden=0,bias=0.1):
+                    hiddenlayers=0,neuronsperhidden=0,bias=0.5):
         self.numinputs        = numinputs
         self.numoutputs       = numoutputs
         self.hiddenlayers     = hiddenlayers

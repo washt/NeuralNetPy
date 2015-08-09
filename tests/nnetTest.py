@@ -44,7 +44,7 @@ class nnetTest(unittest.TestCase):
 		self.assertEqual(nettest.neuronsperhidden,0)
 		#if not hidden layers, then nnet creates one output layer
 		self.assertEqual(len(nettest.neuronlayerlist),1)
-		self.assertEqual(nettest.bias,0)
+		self.assertEqual(nettest.bias,0.5)
 
 	def testgetweights(self):
 		
