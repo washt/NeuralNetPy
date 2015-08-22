@@ -67,8 +67,8 @@ class nnet(object):
             # neuron
             for y in range(self.neuronlayerlist[x].numNeurons):
                 #weight
-                for z in range(neuronlayerlist[x].nhiddenlayer[y].numinputs):
-                    locweights.append(neuronLayer[x].nhiddenlayer[y].weights[z])
+                for z in range(self.neuronlayerlist[x].nhiddenlayer[y].numinputs):
+                    locweights.append(neuronLayer[x].nhiddenlayer[y].weights[z].weights)
 
         return locweights
   
@@ -90,6 +90,12 @@ class nnet(object):
                 for z in range(self.neuronlayerlist[x].nhiddenlayer[y].numinputs):
                     ccweight += 1
                     self.neuronlayerlist[x].nhiddenlayer[y].weights[z] = neweights[ccweight]
+    
+    def addLayer(self):
+        raise NotImplementedError
+
+    def addConnection(self):
+        raise NotImplementedError
 
     def sigmoid(self, netin, resp):
         #@params input,activation response 
