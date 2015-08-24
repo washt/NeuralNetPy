@@ -7,14 +7,14 @@
 * `geneticAlg` class implements a genetic algorithim for the `nnet` class, based on [ai-junkie's C++ implementation.](http://www.ai-junkie.com/ann/evolved/nnt1.html) (__partially__ __implemented__)
 * `neat` class is an implementation of the GE decribed in the [NEAT Paper](http://mitpress.mit.edu/journals), again using the `nnet` class. (__partially__ __implemented__)
 ##Dependencies
-###Implementation
+__Implementation__
 * numpy (for matrix math)
 * sklearn (for test datasets)
 * matplotlib (not really nessessary, mainly to visualize test datasets nicely)
-###Testing
+__Testing__
 * nose
 * coveralls
-##TODO
+#TODO
 * convert from unittest to nose
 * set up coveralls 
 * add/implement backpropagation class
