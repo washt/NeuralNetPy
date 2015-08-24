@@ -9,17 +9,10 @@
 * `neat` class is an implementation of the GE decribed in the [NEAT Paper](http://mitpress.mit.edu/journals), again using the `nnet` class. (__partially__ __implemented__)
 
 ##Dependencies
-
-   __Implementation__
-   * numpy (for matrix math)
-   * sklearn (for test datasets)
-   * matplotlib (not really nessessary, mainly to visualize test datasets nicely)
-   __Testing__
-   * nose
-   * coveralls
-
-##TODO
-* convert from unittest to nose
-* set up coveralls 
-* add/implement backpropagation class
-* add/implement restricted boltzman machine class
+*__Implementation__
+* numpy (for matrix math)
+* sklearn (for test datasets)
+* matplotlib (not really nessessary, mainly to visualize test datasets nicely)
+*__Testing__
+* nose
+* coveralls
