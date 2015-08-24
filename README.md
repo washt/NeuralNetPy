@@ -14,7 +14,6 @@
    * numpy (for matrix math)
    * sklearn (for test datasets)
    * matplotlib (not really nessessary, mainly to visualize test datasets nicely)
-
    __Testing__
    * nose
    * coveralls
