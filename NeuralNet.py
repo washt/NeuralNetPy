@@ -92,10 +92,34 @@ class nnet(object):
                     self.neuronlayerlist[x].nhiddenlayer[y].weights[z] = neweights[ccweight]
     
     def addLayer(self):
-        raise NotImplementedError
+    '''Add a layer to the network, pushed to 
+        either the front or back of the network.
+        You can __not__ push to middle of the network.
+    '''
+       raise NotImplementedError
 
     def addConnection(self):
+    ''' Add a connection to the network by
+        connecting a neuron's output to the input
+        another neuron
+    '''
         raise NotImplementedError
+
+    def mutelayer(self):
+    '''remove a layer from the functionality
+        of the network. Still keep with network
+        to maintain genome persistancy
+    '''
+       raise NotImplementedError
+
+    def calc_error(self,calculated,expected):
+       ''' This should be the difference between the output
+       of the network and the target data corrisponding 
+       to the input of the network 
+       '''
+       self.error = abs(expected - calculated)
+       
+       return self.error
 
     def sigmoid(self, netin, resp):
         #@params input,activation response 
