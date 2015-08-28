@@ -111,7 +111,7 @@ class nnet(object):
     def mutelayer(self):
         '''
         Remove a layer from the functionality
-        of the network. Still keep with network
+        of the network. Still keep reomoved layer with network
         to maintain genome persistancy
         '''
         raise NotImplementedError
@@ -120,14 +120,28 @@ class nnet(object):
         '''
         This should be the difference between the output
         of the network and the target data corrisponding 
-        to the input of the network using the squared 
-        error function
+        to the input of the network, using the squared 
+        error function. The total_error list is updated
+        with every call.
         '''
         self.error = ((expected - calculated)/2)**2
         self.errorlist.append(self.error)
 
         return self.error
 
+    def backpropagation(self):
+        '''
+        Step backwards through the network, and
+        caculate the gradient function for every weight
+        '''
+        weight = self.getWeights()
+
+        
+        raise NotImplementedError
+
+    def total_error(self):
+        return sum(self.errorlist)
+    
     def sigmoid(self, netin, resp):
         #@params input,activation response 
         return (1/ (1 + exp( ((-1)*netin)) / resp))
