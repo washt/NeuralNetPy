@@ -20,10 +20,10 @@ class neuronLayer(object):
     
     def __init__(self,numns,neuralinputs): 
        self.numNeurons = numns
-        self.nhiddenlayer = []
-        if neuralinputs > 0:
-            for i in range(numns):
-                self.nhiddenlayer.append(neuron(neuralinputs))   
+       self.nhiddenlayer = []
+       if neuralinputs > 0:
+        for i in range(numns):
+            self.nhiddenlayer.append(neuron(neuralinputs))   
         
     def gethiddenlayer(self,i):
         return self.nhiddenlayer[i].weights
@@ -97,9 +97,8 @@ class nnet(object):
         '''
         Add a layer to the network, pushed to 
         either the front or back of the network.
-        You can __not__ push to middle of the network.
-        '''
-       raise NotImplementedError
+        You can __not__ push to middle of the network.'''
+        raise NotImplementedError
 
     def addConnection(self):
         ''' 
@@ -115,7 +114,7 @@ class nnet(object):
         of the network. Still keep with network
         to maintain genome persistancy
         '''
-       raise NotImplementedError
+        raise NotImplementedError
 
     def calc_error(self,calculated,expected):
         '''
@@ -124,10 +123,10 @@ class nnet(object):
         to the input of the network using the squared 
         error function
         '''
-       self.error = ((expected - calculated)/2)**2
-       self.errorlist.append(self.error)
-       
-       return self.error
+        self.error = ((expected - calculated)/2)**2
+        self.errorlist.append(self.error)
+
+        return self.error
 
     def sigmoid(self, netin, resp):
         #@params input,activation response 
