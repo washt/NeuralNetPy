@@ -1,6 +1,6 @@
 import random
-# from math import exp
 from numpy import exp
+
 class neuron(object):
 
     def __init__(self,inputs):
@@ -18,8 +18,8 @@ class neuron(object):
 
 class neuronLayer(object):
     
-    def __init__(self,numns,neuralinputs):
-        self.numNeurons = numns
+    def __init__(self,numns,neuralinputs): 
+       self.numNeurons = numns
         self.nhiddenlayer = []
         if neuralinputs > 0:
             for i in range(numns):
@@ -35,13 +35,15 @@ class nnet(object):
     
     def __init__(self,numinputs=0,numoutputs=0,
                     hiddenlayers=0,neuronsperhidden=0,bias=0.5):
+
         self.numinputs        = numinputs
         self.numoutputs       = numoutputs
         self.hiddenlayers     = hiddenlayers
         self.neuronsperhidden = neuronsperhidden
-        self.neuronlayerlist      = []
-        self.bias = bias
-        
+        self.neuronlayerlist  = []
+        self.bias             = bias
+        self.errorlist        = []
+        self.error            = 0.0
         self.buildNet() 
     
     def buildNet(self):
@@ -92,32 +94,38 @@ class nnet(object):
                     self.neuronlayerlist[x].nhiddenlayer[y].weights[z] = neweights[ccweight]
     
     def addLayer(self):
-    '''Add a layer to the network, pushed to 
+        '''
+        Add a layer to the network, pushed to 
         either the front or back of the network.
         You can __not__ push to middle of the network.
-    '''
+        '''
        raise NotImplementedError
 
     def addConnection(self):
-    ''' Add a connection to the network by
+        ''' 
+        Add a connection to the network by
         connecting a neuron's output to the input
         another neuron
-    '''
+        '''
         raise NotImplementedError
 
     def mutelayer(self):
-    '''remove a layer from the functionality
+        '''
+        Remove a layer from the functionality
         of the network. Still keep with network
         to maintain genome persistancy
-    '''
+        '''
        raise NotImplementedError
 
     def calc_error(self,calculated,expected):
-       ''' This should be the difference between the output
-       of the network and the target data corrisponding 
-       to the input of the network 
-       '''
-       self.error = abs(expected - calculated)
+        '''
+        This should be the difference between the output
+        of the network and the target data corrisponding 
+        to the input of the network using the squared 
+        error function
+        '''
+       self.error = ((expected - calculated)/2)**2
+       self.errorlist.append(self.error)
        
        return self.error
 
