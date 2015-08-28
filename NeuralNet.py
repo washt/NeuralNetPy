@@ -134,9 +134,8 @@ class nnet(object):
         Step backwards through the network, and
         caculate the gradient function for every weight
         '''
-        weight = self.getWeights()
+        weights = self.getWeights()
 
-        
         raise NotImplementedError
 
     def total_error(self):

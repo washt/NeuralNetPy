@@ -26,6 +26,3 @@ class neat(object):
 	def crossover():
 
 		raise NotImplementedError
-
-lol = neat()
-		
