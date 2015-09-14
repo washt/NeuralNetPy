@@ -1,5 +1,5 @@
 import random
-from ad import adnumber
+from ad import adnumber,gh
 from numpy import exp
 
 class neuron(object):
@@ -94,6 +94,9 @@ class nnet(object):
                     ccweight += 1
                     self.neuronlayerlist[x].nhiddenlayer[y].weights[z] = neweights[ccweight]
     
+    def getError(self):
+        return self.errorlist
+                
     def addLayer(self):
         '''
         Add a layer to the network, pushed to 
@@ -138,14 +141,16 @@ class nnet(object):
         Apply chain rule to find a given nodes influence on the 
         output __wrt__ the value returned fromt eh total_error method.
         '''
-        weights    = self.getWeights()
-        adnums     = [adnumber(node) for node in weights]
-        optweights = []
+        toterror   = total_error()
+        opts = zip([adnumber(node) for node in self.getWeights()],
+                   [adnumber(node) for node in self.getError()])
+
+        optweights = [node[0].gradient(node[1]) for node in opts]
             
         return optweights
 
     def total_error(self):
-        return sum(self.errorlist)
+        return sum(self.getError())
     
     def sigmoid(self, netin, resp):
         #@params input,activation response 
