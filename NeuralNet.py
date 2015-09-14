@@ -1,4 +1,5 @@
 import random
+from ad import adnumber
 from numpy import exp
 
 class neuron(object):
@@ -134,10 +135,14 @@ class nnet(object):
         '''
         Step backwards through the network, and
         caculate the gradient function for every weight
+        Apply chain rule to find a given nodes influence on the 
+        output __wrt__ the value returned fromt eh total_error method.
         '''
-        weights = self.getWeights()
-
-        raise NotImplementedError
+        weights    = self.getWeights()
+        adnums     = [adnumber(node) for node in weights]
+        optweights = []
+            
+        return optweights
 
     def total_error(self):
         return sum(self.errorlist)
