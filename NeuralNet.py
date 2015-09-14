@@ -97,7 +97,8 @@ class nnet(object):
         '''
         Add a layer to the network, pushed to 
         either the front or back of the network.
-        You can __not__ push to middle of the network.'''
+        You can __not__ push to middle of the network.
+        '''
         raise NotImplementedError
 
     def addConnection(self):

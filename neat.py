@@ -7,12 +7,12 @@ class neat(object):
 
 	def __init__(self):
 		
-		self.generation 	= []
-		self.genotype 		= []
-		self.phenotype 		= []
+		self.generation 	   = []
+		self.genotype 		   = []
+		self.phenotype 		   = []
 		self.global_inno_count = 0
-		self.population = []
-		self.populationsize = 100
+		self.population        = []
+		self.populationsize    = 100
 
 		for i in range(self.populationsize):
 			#create an initial population with zero hidden nodes
