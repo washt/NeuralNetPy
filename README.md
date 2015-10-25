@@ -10,9 +10,10 @@
 
 ##Dependencies
 __Implementation__
-* numpy (for matrix math)
-* sklearn (for test datasets)
-* matplotlib (not really nessessary, mainly to visualize test datasets nicely)
+* numpy -- For matrix math
+* sklearn -- For test datasets
+* matplotlib -- Not really nessessary, mainly to visualize test datasets nicely
+* ad -- For easy differentiation
 
 __Testing__
 * nose
